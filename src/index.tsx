@@ -116,4 +116,4 @@ serve({
   port: 3001,
 });
 
-console.log(`Visualizations are running on http://localhost:${port}`);
+console.log(`Visualizations are running on http://localhost:3001`);
