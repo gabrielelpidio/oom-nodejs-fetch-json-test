@@ -1,6 +1,6 @@
 setInterval(() => {
   const memoryUsage = process.memoryUsage();
-  console.log(JSON.stringify(memoryUsage));
+  console.log(JSON.stringify({ ...memoryUsage, _time: Date.now() }));
 }, 1000);
 
 const recursiveFetchIngest = async () => {

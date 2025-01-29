@@ -2,12 +2,19 @@
   "name": "axiom-js-enode-test",
   "type": "module",
   "scripts": {
-    "dev": "tsx watch src/index.ts"
+    "dev": "tsx watch src/index.tsx",
+    "test:axiom": "/usr/bin/time -o ./stats/d500-6-time.txt node ./scripts/test-axiom.js 2>./stats/d500-6-err.txt | tee ./stats/d500-6.json >/dev/null",
+    "test:fetch": "/usr/bin/time -o ./stats/d500-6-time.txt node ./scripts/test-fetch.js 2>./stats/d500-6-err.txt | tee ./stats/d500-6.json >/dev/null",
+    "postinstall": "mkdir -p stats"
   },
   "dependencies": {
     "@axiomhq/js": "^1.3.1",
     "@hono/node-server": "^1.13.7",
-    "hono": "^4.6.19"
+    "@observablehq/plot": "^0.6.16",
+    "@types/asciichart": "^1.5.8",
+    "asciichart": "^1.5.25",
+    "hono": "^4.6.19",
+    "ndjson": "^2.0.0"
   },
   "devDependencies": {
     "@types/node": "^20.11.17",
