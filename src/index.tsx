@@ -4,8 +4,8 @@ import { html, raw } from "hono/html";
 import fs from "node:fs";
 const app = new Hono();
 
-app.get("*", () => {
-  return new Response("", { status: 200 });
+app.all("**", () => {
+  return new Response("", { status: 500 });
 });
 
 const port = 3000;

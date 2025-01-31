@@ -1,7 +1,8 @@
 import { Axiom } from "@axiomhq/js";
+import "dotenv/config";
 
 const axiom = new Axiom({
-  token: "xaat-5d354a65-645e-48e6-9b97-8697a7489e3a",
+  token: process.env.AXIOM_TOKEN,
   url: "http://localhost:3000",
 });
 
@@ -13,6 +14,7 @@ setInterval(() => {
 const recursiveIngest = async () => {
   axiom.ingest("test", [{ test: "test" }]);
   await axiom.flush();
-  console.log("Done");
   return recursiveIngest();
 };
+
+recursiveIngest();
